@@ -307,8 +307,8 @@ def handle_bgmi(message):
             target = command[1]
             port = int(command[2])  # Convert port to integer
             time = int(command[3])  # Convert time to integer
-            if time > 600:
-                response = "Error: Time interval must be less than 600."
+            if time > 180:
+                response = "Error: Time interval must be less than 180."
             else:
                 record_command_logs(user_id, '/bgmi', target, port, time)
                 log_command(user_id, target, port, time)
@@ -318,7 +318,7 @@ def handle_bgmi(message):
                 response = f"BGMI Attack Finished. Target: {target} Port: {port} Time: {time}"
                 bot.reply_to(message, response)  # Notify the user that the attack is finished
         else:
-            response = "✅ Usage :- /bgmi <target> <port> <time>"  # Updated command syntax
+            response = "✅ Usage :- /ritik <target> <port> <time>"  # Updated command syntax
     else:
         response = ("🚫 tere baap ko bol vah approved kare dega! 🚫\n\n:- @RitikXyz099")
 
@@ -358,7 +358,7 @@ def show_help(message):
 💥 /admincmd : Shows All Admin Commands.
 
 Buy From :- @RitikXyz099
-Official Channel :- yaha tak aagaya madarcod abb lele mere se @RitikXyz099
+Official Channel :- teri maka bhosda kab tak free uge karega bhikari @RitikXyz099
 '''
     for handler in bot.message_handlers:
         if hasattr(handler, 'commands'):
